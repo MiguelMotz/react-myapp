@@ -1,18 +1,35 @@
-import React from "react";
+import React, { useState } from "react";
 import ReactDOM from "react-dom/client";
-import { Greeting, UserCard } from "./Greeting";
-import Product from "./Product";
-import {Button} from "./Button";
-import {TaskCard} from "./Taskk"
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
+function Counter() {
+  const [counter, setCounter] = useState(10);
 
+  
+  return (
+    <div>
+      <h1>Counter: {counter} </h1>
+      <button
+        onClick={() => {
+          setCounter(counter +  20)
+        }}
+      >
+        Sumar
+      </button>
 
-root.render(  
-  <div>
-    
-   <TaskCard/>
-   
-  </div>
+      <button onClick={() => {
+          setCounter(counter -  10)
+        }}
+      >
+        restar
+      </button>
+    </div>
+  );
+}
+
+root.render(
+  <>
+    <Counter />
+  </>
 );
